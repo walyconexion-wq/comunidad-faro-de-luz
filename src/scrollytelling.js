@@ -208,8 +208,11 @@
     });
   }
 
-  function handleLuzUserMessage(userText) {
+  let luzChatHistory = [];
+
+  async function handleLuzUserMessage(userText) {
     appendLuzMessage('Tú', userText, 'user');
+    luzChatHistory.push({ role: 'user', content: userText });
 
     // Indicador de "Escribiendo..."
     const typingIndicator = document.createElement('div');
@@ -218,12 +221,26 @@
     luzChatBody.appendChild(typingIndicator);
     luzChatBody.scrollTop = luzChatBody.scrollHeight;
 
-    // Respuesta inteligente local (Pre-conectada para API china futura)
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userText, history: luzChatHistory })
+      });
+
+      const data = await response.json();
+      typingIndicator.remove();
+
+      const reply = data.reply || generateLuzResponse(userText);
+      luzChatHistory.push({ role: 'assistant', content: reply });
+      appendLuzMessage('Luz-02', reply, 'assistant');
+    } catch (err) {
+      console.warn('Fallback por red:', err);
       typingIndicator.remove();
       const reply = generateLuzResponse(userText);
+      luzChatHistory.push({ role: 'assistant', content: reply });
       appendLuzMessage('Luz-02', reply, 'assistant');
-    }, 750);
+    }
   }
 
   function generateLuzResponse(text) {

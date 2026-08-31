@@ -167,29 +167,44 @@
 
   // 6. Chat interactivo con el Agente Luz-02 / Triage
   if (chatForm) {
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = chatInput.value.trim();
-      if (!text) return;
+    let bunkerChatHistory = [];
 
-      appendMessage('Director Waly', text, 'text-amber-300');
-      chatInput.value = '';
+  chatForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = chatInput.value.trim();
+    if (!text) return;
 
-      setTimeout(() => {
-        let reply = 'Orden procesada. He actualizado la telemetría del nodo y sincronizado con Supabase PostgreSQL.';
-        const lower = text.toLowerCase();
-        
-        if (lower.includes('postulacion') || lower.includes('talento') || lower.includes('aspirante')) {
-          reply = 'Tabla de Supabase sincronizada. Las postulaciones de aspirantes a fundadores se almacenan en tiempo real en la base de datos de São Paulo.';
-        } else if (lower.includes('solar') || lower.includes('litio') || lower.includes('bateria') || lower.includes('agua')) {
-          reply = 'Telemetría: Banco de litio al 94.2%, generación fotovoltaica a 18.4 kW en los 6 contenedores. Cisterna en torre al 88% con 22.000 L.';
-        } else if (lower.includes('dinero') || lower.includes('fideicomiso') || lower.includes('shopdigital') || lower.includes('plata')) {
-          reply = 'Fideicomiso en superávit. El aporte mensual inyectado por ShopDigital ($6.500.000 ARS) cubre holgadamente los $2.180.000 ARS de gastos comunales.';
-        }
+    appendMessage('Director Waly', text, 'text-amber-300');
+    bunkerChatHistory.push({ role: 'user', content: text });
+    chatInput.value = '';
 
-        appendMessage('Luz-02', reply, 'text-cyan-400');
-      }, 700);
-    });
+    // Indicador temporal
+    const tempId = 'msg-' + Date.now();
+    const tempDiv = document.createElement('div');
+    tempDiv.id = tempId;
+    tempDiv.className = 'flex gap-3 bg-cyan-500/5 p-3 rounded-xl border border-cyan-500/10 font-mono text-xs text-cyan-300 italic';
+    tempDiv.innerHTML = '<span>⚡ Consultando a Luz-02 AI...</span>';
+    chatMessages.appendChild(tempDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text, history: bunkerChatHistory })
+      });
+
+      const data = await response.json();
+      tempDiv.remove();
+
+      const reply = data.reply || 'Orden registrada en el nodo central.';
+      bunkerChatHistory.push({ role: 'assistant', content: reply });
+      appendMessage('Luz-02', reply, 'text-cyan-400');
+    } catch (err) {
+      tempDiv.remove();
+      appendMessage('Luz-02', 'Sistemas del búnker operativos. ' + text, 'text-cyan-400');
+    }
+  });
   }
 
   function appendMessage(sender, msg, colorClass) {

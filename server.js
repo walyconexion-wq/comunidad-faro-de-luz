@@ -4,6 +4,7 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
+const chatHandler = require('./api/chat.js');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -17,13 +18,39 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon'
 };
 
-const server = http.createServer((req, res) => {
+const server = http.createServer(async (req, res) => {
   let reqUrl = req.url.split('?')[0];
+
+  // Router API Chat
+  if (reqUrl === '/api/chat') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', async () => {
+      try {
+        req.body = body ? JSON.parse(body) : {};
+      } catch (e) {
+        req.body = {};
+      }
+
+      // Mock helpers para compatibilidad con Vercel Serverless
+      res.status = (code) => {
+        res.statusCode = code;
+        return res;
+      };
+      res.json = (data) => {
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
+        res.end(JSON.stringify(data));
+      };
+
+      await chatHandler(req, res);
+    });
+    return;
+  }
+
   if (reqUrl === '/') reqUrl = '/index.html';
 
   let filePath = path.join(PUBLIC_DIR, reqUrl);
 
-  // Si no esta en public/, buscar en root
   if (!fs.existsSync(filePath)) {
     filePath = path.join(__dirname, reqUrl);
   }
