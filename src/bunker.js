@@ -144,17 +144,22 @@
 
           tr.innerHTML = `
             <td class="p-4 font-sans font-semibold text-white">${p.nombre_completo}</td>
-            <td class="p-4 capitalize text-slate-300">${p.modalidad}</td>
+            <td class="p-4 text-slate-300 text-xs">${p.modalidad}</td>
             <td class="p-4 text-cyan-300 font-medium">${talentoIcon}</td>
             <td class="p-4 text-slate-400">${p.telefono_whatsapp}<br><span class="text-[10px] text-slate-500">${p.email}</span></td>
             <td class="p-4">
               <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] uppercase font-mono">
-                ${p.estado_evaluacion || 'Pendiente'}
+                ${p.estado_evaluacion || 'Suscripción Activa'}
               </span>
             </td>
-            <td class="p-4 text-right">
-              <button class="px-2.5 py-1 rounded bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-[10px] font-mono transition-all" onclick="alert('Evaluando postulacion de ${p.nombre_completo}: \n\nMotivacion: ${p.experiencia_motivacion}')">
-                Evaluar
+            <td class="p-4 text-right flex items-center justify-end gap-2">
+              <a href="https://api.whatsapp.com/send?phone=${p.telefono_whatsapp.replace(/[^0-9]/g, '')}&text=${encodeURIComponent('¡Hola ' + p.nombre_completo + '! Te saludamos desde la Dirección de la Comunidad Faro de Luz. Te confirmamos la emisión de tu Credencial Digital de Miembro. ¡Bienvenido a nuestra comunidad!')}" target="_blank" class="px-2.5 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 text-[10px] font-mono transition-all">
+                🪪 WhatsApp Credencial
+              </a>
+              <button class="px-2.5 py-1 rounded bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-[10px] font-mono transition-all" onclick="alert('Detalles de Suscripción / Mensaje: 
+
+' + '${p.experiencia_motivacion}')">
+                Ver Ficha
               </button>
             </td>
           `;
