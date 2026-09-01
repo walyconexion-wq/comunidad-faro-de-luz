@@ -534,3 +534,30 @@
 
   // Carga inicial
   fetchPublicGaleria();
+
+
+  // ==========================================
+  // RELOJ DIGITAL EN VIVO (HEADER FARO DE LUZ)
+  // ==========================================
+  function initLiveHeaderClock() {
+    const clockEl = document.getElementById('clock-display');
+    if (!clockEl) return;
+
+    function update() {
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2, '0');
+      const day = pad(now.getDate());
+      const month = pad(now.getMonth() + 1);
+      const year = now.getFullYear();
+      const hours = pad(now.getHours());
+      const minutes = pad(now.getMinutes());
+      const seconds = pad(now.getSeconds());
+
+      clockEl.textContent = `${day}/${month}/${year} · ${hours}:${minutes}:${seconds}`;
+    }
+
+    update();
+    setInterval(update, 1000);
+  }
+
+  initLiveHeaderClock();
