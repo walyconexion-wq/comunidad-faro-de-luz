@@ -246,6 +246,9 @@
   function generateLuzResponse(text) {
     const q = text.toLowerCase();
     
+    if (q.includes('vision') || q.includes('mision') || q.includes('proposito') || q.includes('objetivo')) {
+    return 'Nuestra Visión es ser un modelo pionero de comunidad de montaña autosustentable en Traslasierra, con soberanía energética y tecnológica. Nuestra Misión es albergar a 6 familias fundadoras que integran fe cristiana, excelencia profesional en ShopDigital (70/20/10) y desarrollo comunitario de vanguardia.';
+  }
     if (q.includes('vivienda') || q.includes('casa') || q.includes('modular') || q.includes('container') || q.includes('domo')) {
       return 'Las viviendas son 6 módulos en contenedores marítimos de 40ft High Cube dispuestos en herradura alrededor del Domo Central. Cuentan con aislamiento térmico de triple capa (poliuretano expandido + Durlock) y montaje antisísmico sobre pilotes aislados.';
     }

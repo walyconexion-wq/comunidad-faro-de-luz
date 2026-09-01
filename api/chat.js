@@ -194,7 +194,10 @@ module.exports = async (req, res) => {
 
 function generateCalibratedFallback(text) {
   const q = text.toLowerCase();
-  if (q.includes('vivienda') || q.includes('casa') || q.includes('modular') || q.includes('container') || q.includes('domo')) {
+  if (q.includes('vision') || q.includes('mision') || q.includes('proposito') || q.includes('objetivo')) {
+    return 'Nuestra Visión es ser un modelo pionero de comunidad de montaña autosustentable en Traslasierra, con soberanía energética y tecnológica. Nuestra Misión es albergar a 6 familias fundadoras que integran fe cristiana, excelencia profesional en ShopDigital (70/20/10) y desarrollo comunitario de vanguardia.';
+  }
+    if (q.includes('vivienda') || q.includes('casa') || q.includes('modular') || q.includes('container') || q.includes('domo')) {
     return 'Nuestras viviendas constan de 6 módulos en contenedores marítimos de 40ft High Cube dispuestos en herradura con orientación bioclimática hacia las sierras. Están montados sobre pilotes antisísmicos con aislamiento de poliuretano proyectado y convergen hacia el Domo Central de 10m de diámetro.';
   }
   if (q.includes('shopdigital') || q.includes('sustento') || q.includes('trabajo') || q.includes('70/20') || q.includes('dinero') || q.includes('economia')) {
