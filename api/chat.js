@@ -194,7 +194,10 @@ module.exports = async (req, res) => {
 
 function generateCalibratedFallback(text) {
   const q = text.toLowerCase();
-  if (q.includes('vision') || q.includes('mision') || q.includes('proposito') || q.includes('objetivo')) {
+  if (q.includes('ecosistema') || q.includes('4 pilares') || q.includes('plataforma') || q.includes('ramas')) {
+    return 'Nuestro Ecosistema está compuesto por 4 pilares independientes: 1) ShopDigital (empresa de software e IA que sustenta el 100% de los fondos), 2) Comunidad Faro de Luz (la base física de montaña y hábitat modular), 3) Fundación Valle de Luz (acción social y apoyo comunitario en Traslasierra), y 4) Ministerio Caminos de Fe (formación espiritual, culto y adoración).';
+  }
+    if (q.includes('vision') || q.includes('mision') || q.includes('proposito') || q.includes('objetivo')) {
     return 'Nuestra Visión es ser un modelo pionero de comunidad de montaña autosustentable en Traslasierra, con soberanía energética y tecnológica. Nuestra Misión es albergar a 6 familias fundadoras que integran fe cristiana, excelencia profesional en ShopDigital (70/20/10) y desarrollo comunitario de vanguardia.';
   }
     if (q.includes('vivienda') || q.includes('casa') || q.includes('modular') || q.includes('container') || q.includes('domo')) {
