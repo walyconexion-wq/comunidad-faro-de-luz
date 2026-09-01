@@ -246,6 +246,9 @@
   function generateLuzResponse(text) {
     const q = text.toLowerCase();
     
+    if (q.includes('donde') || q.includes('ubicac') || q.includes('mapa') || q.includes('panaholma') || q.includes('brochero') || q.includes('llegar')) {
+    return 'La Comunidad Faro de Luz está emplazada en un predio de 1 hectárea con provisión de agua propia en el Valle de Traslasierra, Córdoba, ubicado estratégicamente en el corredor entre Panaholma (a 10 min) y Villa Cura Brochero / Mina Clavero (a 15 min), con acceso consolidado para todo tipo de vehículos y a 2.5 hs de Córdoba Capital por las Altas Cumbres.';
+  }
     if (q.includes('ecosistema') || q.includes('4 pilares') || q.includes('plataforma') || q.includes('ramas')) {
     return 'Nuestro Ecosistema está compuesto por 4 pilares independientes: 1) ShopDigital (empresa de software e IA que sustenta el 100% de los fondos), 2) Comunidad Faro de Luz (la base física de montaña y hábitat modular), 3) Fundación Valle de Luz (acción social y apoyo comunitario en Traslasierra), y 4) Ministerio Caminos de Fe (formación espiritual, culto y adoración).';
   }
