@@ -114,8 +114,8 @@
     <div class="sticky top-0 h-screen w-full overflow-hidden z-0">
       <canvas id="scrolly-canvas" class="w-full h-full object-cover block"></canvas>
       <!-- Capas de contraste y viñeta -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#070A0F] via-transparent to-[#070A0F]/70 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-black/25 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#070A0F] via-transparent to-[#070A0F]/35 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
     </div>
 
     <!-- SECCIONES FLOTANTES ATADAS AL SCROLL -->
@@ -123,7 +123,7 @@
 
       <!-- ESCENA 1: HERO (0vh - 120vh) -->
       <section id="hero" class="min-h-[120vh] flex flex-col items-center justify-center px-4 text-center">
-        <div class="max-w-4xl backdrop-blur-md bg-black/35 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl transition-all duration-500 transform hover:border-amber-500/30">
+        <div class="max-w-4xl glass-card-faro rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl transition-all duration-500 transform hover:border-amber-500/30">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-widest uppercase mb-6">
             <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
             Base Comunitaria · Valle de Traslasierra, Córdoba
@@ -152,12 +152,12 @@
         <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- Tarjeta 1: Hábitat Modular -->
-          <div class="backdrop-blur-xl bg-slate-950/80 border border-white/10 rounded-3xl p-7 shadow-2xl hover:border-amber-500/40 transition-all group">
+          <div class="glass-card-faro rounded-3xl p-6 sm:p-7 shadow-2xl hover:border-amber-500/50 transition-all group">
             <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
               🏡
             </div>
             <h3 class="font-serif text-2xl font-bold text-white mb-2">Viviendas Modulares & Domo</h3>
-            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+            <p class="text-sm text-slate-100 font-normal leading-relaxed mb-4 text-shadow-faro">
               6 módulos habitacionales en contenedores marítimos 40ft High Cube dispuestos en herradura, montados sobre pilotes antisísmicos con aislamiento térmico de triple capa (poliuretano expandido y Durlock).
             </p>
             <ul class="text-xs text-slate-400 space-y-2 border-t border-white/10 pt-4">
@@ -167,7 +167,7 @@
           </div>
 
           <!-- Tarjeta 2: Red Solar & Sustento Digital -->
-          <div class="backdrop-blur-xl bg-slate-950/80 border border-white/10 rounded-3xl p-7 shadow-2xl hover:border-cyan-500/40 transition-all group">
+          <div class="glass-card-faro rounded-3xl p-6 sm:p-7 shadow-2xl hover:border-cyan-500/50 transition-all group">
             <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
               ⚡
             </div>
@@ -186,7 +186,7 @@
 
       <!-- ESCENA 3: ORGANIGRAMA Y ÁREAS DE TRABAJO (240vh - 360vh) -->
       <section id="gobernanza" class="min-h-[150vh] flex flex-col items-center justify-center px-4">
-        <div class="max-w-5xl w-full backdrop-blur-xl bg-slate-950/85 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+        <div class="max-w-5xl w-full glass-card-faro rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl">
           
           <div class="text-center max-w-2xl mx-auto mb-8">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono uppercase tracking-widest mb-3">
@@ -251,7 +251,7 @@
         <div class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- Tarjeta: Regla de Oro 70/20/10 -->
-          <div class="backdrop-blur-xl bg-slate-950/85 border border-amber-500/30 rounded-3xl p-7 shadow-2xl flex flex-col justify-between">
+          <div class="glass-card-faro border-amber-500/35 rounded-3xl p-6 sm:p-7 shadow-2xl flex flex-col justify-between">
             <div>
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 text-[11px] font-mono uppercase tracking-widest mb-4">
                 ⏱️ Asignación de Tiempo
@@ -287,7 +287,7 @@
           </div>
 
           <!-- Tarjeta: Fideicomiso Co-Housing & Legalidad -->
-          <div id="legalidad" class="backdrop-blur-xl bg-slate-950/85 border border-white/10 rounded-3xl p-7 shadow-2xl flex flex-col justify-between">
+          <div id="legalidad" class="glass-card-faro rounded-3xl p-6 sm:p-7 shadow-2xl flex flex-col justify-between">
             <div>
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 text-[11px] font-mono uppercase tracking-widest mb-4">
                 📜 Blindaje Territorial
@@ -319,7 +319,7 @@
 
       <!-- ESCENA 5: TABLERO MAESTRO DE BÚNKERES (480vh - 620vh) -->
       <section id="tablero-maestro" class="min-h-[160vh] flex flex-col items-center justify-center px-4 py-16">
-        <div class="max-w-6xl w-full backdrop-blur-2xl bg-slate-950/90 border border-cyan-500/30 rounded-3xl p-8 md:p-12 shadow-2xl shadow-black/90">
+        <div class="max-w-6xl w-full glass-card-faro border-cyan-500/35 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl shadow-black/90">
           
           <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
             <div>
@@ -345,7 +345,7 @@
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
             
             <!-- Búnker 1: Automatización & Agente -->
-            <div class="p-6 rounded-2xl bg-[#0B111A] border border-cyan-500/20 hover:border-cyan-400/50 transition-all group flex flex-col justify-between">
+            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-cyan-500/25 hover:bg-black/35 hover:border-cyan-400/50 transition-all group flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-2xl">🤖</span>
@@ -361,7 +361,7 @@
             </div>
 
             <!-- Búnker 2: Ecotecnología & Telemetría -->
-            <div class="p-6 rounded-2xl bg-[#0B111A] border border-amber-500/20 hover:border-amber-400/50 transition-all group flex flex-col justify-between">
+            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-amber-500/25 hover:bg-black/35 hover:border-amber-400/50 transition-all group flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-2xl">🔋</span>
@@ -377,7 +377,7 @@
             </div>
 
             <!-- Búnker 3: Finanzas & Fideicomiso -->
-            <div class="p-6 rounded-2xl bg-[#0B111A] border border-emerald-500/20 hover:border-emerald-400/50 transition-all group flex flex-col justify-between">
+            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-emerald-500/25 hover:bg-black/35 hover:border-emerald-400/50 transition-all group flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-2xl">📊</span>
@@ -393,7 +393,7 @@
             </div>
 
             <!-- Búnker 4: Difusión & Convocatoria -->
-            <div class="p-6 rounded-2xl bg-[#0B111A] border border-purple-500/20 hover:border-purple-400/50 transition-all group flex flex-col justify-between">
+            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-purple-500/25 hover:bg-black/35 hover:border-purple-400/50 transition-all group flex flex-col justify-between">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-2xl">📢</span>
@@ -409,7 +409,7 @@
             </div>
 
             <!-- Búnker 5: SecOps & Roles -->
-            <div class="p-6 rounded-2xl bg-[#0B111A] border border-red-500/20 hover:border-red-400/50 transition-all group flex flex-col justify-between md:col-span-2">
+            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-red-500/25 hover:bg-black/35 hover:border-red-400/50 transition-all group flex flex-col justify-between md:col-span-2">
               <div>
                 <div class="flex items-center justify-between mb-4">
                   <span class="text-2xl">🛡️</span>
@@ -432,7 +432,7 @@
 
       <!-- ESCENA 6: CENTRO DE FORMACIÓN Y POSTULACIÓN (620vh - 750vh) -->
       <section id="formacion" class="min-h-[160vh] flex flex-col items-center justify-center px-4 py-20">
-        <div id="postulacion" class="max-w-4xl w-full backdrop-blur-2xl bg-slate-950/90 border border-amber-500/30 rounded-3xl p-8 md:p-12 shadow-2xl shadow-black/80">
+        <div id="postulacion" class="max-w-4xl w-full glass-card-faro border-amber-500/35 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl shadow-black/80">
           
           <div class="text-center max-w-2xl mx-auto mb-10">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono uppercase tracking-widest mb-3">

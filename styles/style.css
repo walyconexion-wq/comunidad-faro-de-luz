@@ -1,7 +1,34 @@
-﻿@layer utilities {
+@layer utilities {
   .drop-shadow-glow {
     filter: drop-shadow(0 0 20px rgba(229, 192, 123, 0.35));
   }
+}
+
+/* Glassmorphism Ultra Traslúcido de Alto Impacto */
+.glass-card-faro {
+  background: rgba(6, 10, 18, 0.40) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45) !important;
+}
+
+.glass-card-faro:hover {
+  background: rgba(6, 10, 18, 0.48) !important;
+}
+
+@media (max-width: 768px) {
+  .glass-card-faro {
+    background: rgba(5, 8, 14, 0.32) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    padding: 1.25rem !important;
+  }
+}
+
+/* Sombra de texto para maxima legibilidad sobre video/frames */
+.text-shadow-faro {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 /* Custom Scrollbar */
