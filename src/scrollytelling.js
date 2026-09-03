@@ -165,6 +165,40 @@
 
     let isOpen = false;
     let chatHistory = [];
+    let isVoiceActive = true;
+    let voicePlayer = null;
+
+    const btnToggleVoice = document.getElementById('btn-toggle-voice');
+    if (btnToggleVoice) {
+      btnToggleVoice.addEventListener('click', () => {
+        isVoiceActive = !isVoiceActive;
+        btnToggleVoice.textContent = isVoiceActive ? '🔊' : '🔇';
+        btnToggleVoice.title = isVoiceActive ? 'Voz Activada (Elena Argentina)' : 'Voz Silenciada';
+        if (!isVoiceActive && voicePlayer) {
+          voicePlayer.pause();
+          voicePlayer = null;
+        }
+      });
+    }
+
+    function reproducirVozHumana(texto) {
+      if (!isVoiceActive) return;
+      const textoLimpio = texto
+        .replace(/[😀-🙏|🌀-🗿|🚀-🛿|🇠-🇿|☀-⛿|✀-➿]/gu, '')
+        .replace(/[*_#`~]/g, '')
+        .trim();
+
+      if (!textoLimpio) return;
+
+      if (voicePlayer) {
+        voicePlayer.pause();
+        voicePlayer = null;
+      }
+
+      const audioUrl = `/api/tts?voice=es-AR-ElenaNeural&text=${encodeURIComponent(textoLimpio.substring(0, 400))}`;
+      voicePlayer = new Audio(audioUrl);
+      voicePlayer.play().catch(err => console.log('Audio espera interacción del usuario:', err));
+    }
 
     function toggleChat(force) {
       isOpen = typeof force === 'boolean' ? force : !isOpen;
@@ -229,6 +263,7 @@
         const reply = data.reply || getLocalFallback(text);
         chatHistory.push({ role: 'assistant', content: reply });
         appendChatMessage('Luz-02', reply, 'assistant');
+        reproducirVozHumana(reply);
       } catch (err) {
         indicator.remove();
         const reply = getLocalFallback(text);

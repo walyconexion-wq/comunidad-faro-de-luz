@@ -5,6 +5,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 const chatHandler = require('./api/chat.js');
+const ttsHandler = require('./api/tts.js');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -15,11 +16,44 @@ const MIME_TYPES = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.svg': 'image/svg+xml',
-  '.ico': 'image/x-icon'
+  '.ico': 'image/x-icon',
+  '.mp3': 'audio/mpeg'
 };
 
 const server = http.createServer(async (req, res) => {
   let reqUrl = req.url.split('?')[0];
+
+  // Router API TTS (Microsoft Edge Neural TTS)
+  if (reqUrl === '/api/tts') {
+    res.status = (code) => {
+      res.statusCode = code;
+      return res;
+    };
+    res.json = (data) => {
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      res.end(JSON.stringify(data));
+    };
+    res.send = (buf) => {
+      res.end(buf);
+    };
+
+    if (req.method === 'POST') {
+      let body = '';
+      req.on('data', chunk => { body += chunk.toString(); });
+      req.on('end', async () => {
+        try {
+          req.body = body ? JSON.parse(body) : {};
+        } catch (e) {
+          req.body = {};
+        }
+        await ttsHandler(req, res);
+      });
+      return;
+    } else {
+      await ttsHandler(req, res);
+      return;
+    }
+  }
 
   // Router API Chat
   if (reqUrl === '/api/chat') {
@@ -32,7 +66,6 @@ const server = http.createServer(async (req, res) => {
         req.body = {};
       }
 
-      // Mock helpers para compatibilidad con Vercel Serverless
       res.status = (code) => {
         res.statusCode = code;
         return res;
