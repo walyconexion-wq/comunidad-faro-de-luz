@@ -362,7 +362,7 @@
     }
   }
 
-  // 5. GALERÍA PÚBLICA & LIGHTBOX
+// 5. GALERÍA PÚBLICA & LIGHTBOX (SINCRONIZADO CON BÚNKER Y SUPABASE)
   function initGaleriaPublic() {
     const galeriaGrid = document.getElementById('galeria-public-grid');
     const filterBtns = document.querySelectorAll('.galeria-filter-btn');
@@ -373,9 +373,11 @@
     const lightboxDesc = document.getElementById('lightbox-desc');
     const lightboxBadge = document.getElementById('lightbox-badge');
 
+    const STORAGE_KEY = 'faro_galeria_live_v1';
+
     const defaultMedia = [
       {
-        id: 'm1',
+        id: 'item-1',
         titulo: 'Emblema Oficial Faro de Luz 3D',
         tipo: 'foto',
         url: 'https://farodeluz.dpdns.org/og-faro.jpg',
@@ -384,7 +386,7 @@
         destacado: true
       },
       {
-        id: 'm2',
+        id: 'item-2',
         titulo: 'Amanecer en las Altas Cumbres',
         tipo: 'foto',
         url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
@@ -393,7 +395,7 @@
         destacado: true
       },
       {
-        id: 'm3',
+        id: 'item-3',
         titulo: 'Domo Geodésico y Búnker Central',
         tipo: 'foto',
         url: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80',
@@ -402,7 +404,7 @@
         destacado: true
       },
       {
-        id: 'm4',
+        id: 'item-4',
         titulo: 'Microrred Solar Fotovoltaica 18.4kW',
         tipo: 'foto',
         url: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80',
@@ -411,7 +413,7 @@
         destacado: false
       },
       {
-        id: 'm5',
+        id: 'item-5',
         titulo: 'Viviendas Modulares 40ft High Cube',
         tipo: 'foto',
         url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
@@ -420,7 +422,7 @@
         destacado: false
       },
       {
-        id: 'm6',
+        id: 'item-6',
         titulo: 'Recorrido Panorámico del Valle',
         tipo: 'video',
         url: 'https://www.youtube.com/embed/ScMzIvxBSi4',
@@ -435,6 +437,8 @@
 
     async function fetchMedia() {
       if (!galeriaGrid) return;
+      let fetched = null;
+
       if (supabase) {
         try {
           const { data, error } = await supabase
@@ -442,19 +446,47 @@
             .select('*')
             .order('fecha', { ascending: false });
 
-          if (!error && data && data.length > 0) {
-            currentList = data;
+          if (!error && data) {
+            fetched = data;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(fetched));
           }
         } catch (e) {
-          console.warn('Fallback a medios por defecto:', e);
+          console.warn('Fallback a LocalStorage:', e);
         }
       }
+
+      if (!fetched) {
+        const local = localStorage.getItem(STORAGE_KEY);
+        if (local !== null) {
+          try {
+            fetched = JSON.parse(local);
+          } catch (e) {
+            fetched = defaultMedia;
+          }
+        } else {
+          fetched = defaultMedia;
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultMedia));
+        }
+      }
+
+      currentList = fetched || defaultMedia;
       render();
     }
 
     function render() {
       if (!galeriaGrid) return;
       galeriaGrid.innerHTML = '';
+
+      if (currentList.length === 0) {
+        galeriaGrid.innerHTML = `
+          <div class="col-span-full text-center p-12 glass-card-faro rounded-3xl space-y-3">
+            <div class="text-3xl">📷</div>
+            <div class="text-white font-serif text-lg font-bold">Galería en Actualización</div>
+            <p class="text-xs text-slate-400">Pronto publicaremos nuevos registros audiovisuales de las obras.</p>
+          </div>
+        `;
+        return;
+      }
 
       const filtered = currentList.filter(item => {
         if (activeCategory === 'todos') return true;
@@ -467,16 +499,32 @@
         card.className = 'glass-card-faro rounded-3xl overflow-hidden shadow-2xl hover:border-amber-500/50 transition-all duration-300 group flex flex-col justify-between transform hover:scale-[1.02] cursor-pointer';
 
         const isVideo = item.tipo === 'video';
-        const thumbHtml = isVideo
-          ? `<div class="relative w-full h-48 bg-slate-950 flex items-center justify-center overflow-hidden">
-               <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-               <div class="w-14 h-14 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-300 z-20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all shadow-lg">▶</div>
-               <span class="absolute top-3 right-3 z-20 px-2 py-0.5 rounded bg-cyan-500/80 text-slate-950 font-mono text-[9px] font-bold uppercase">🎬 Video</span>
-             </div>`
-          : `<div class="relative w-full h-48 bg-slate-950 overflow-hidden">
-               <img src="${item.url}" alt="${item.titulo}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://farodeluz.dpdns.org/og-faro.jpg'">
-               <span class="absolute top-3 right-3 px-2 py-0.5 rounded bg-amber-500/80 text-slate-950 font-mono text-[9px] font-bold uppercase">📷 Foto</span>
-             </div>`;
+        let thumbHtml = '';
+
+        if (isVideo) {
+          if (item.url.includes('youtube.com/embed/')) {
+            thumbHtml = `
+              <div class="relative w-full h-48 bg-slate-950 flex items-center justify-center overflow-hidden">
+                <iframe src="${item.url}" class="w-full h-full border-0 pointer-events-none"></iframe>
+                <div class="absolute inset-0 bg-transparent z-10"></div>
+                <div class="w-14 h-14 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-300 z-20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all shadow-lg">▶</div>
+                <span class="absolute top-3 right-3 z-20 px-2 py-0.5 rounded bg-cyan-500/80 text-slate-950 font-mono text-[9px] font-bold uppercase">🎬 Video</span>
+              </div>`;
+          } else {
+            thumbHtml = `
+              <div class="relative w-full h-48 bg-slate-950 flex items-center justify-center overflow-hidden">
+                <video src="${item.url}" class="w-full h-full object-cover"></video>
+                <div class="w-14 h-14 rounded-full bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-300 z-20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all shadow-lg">▶</div>
+                <span class="absolute top-3 right-3 z-20 px-2 py-0.5 rounded bg-cyan-500/80 text-slate-950 font-mono text-[9px] font-bold uppercase">🎬 Video</span>
+              </div>`;
+          }
+        } else {
+          thumbHtml = `
+            <div class="relative w-full h-48 bg-slate-950 overflow-hidden">
+              <img src="${item.url}" alt="${item.titulo}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://farodeluz.dpdns.org/og-faro.jpg'">
+              <span class="absolute top-3 right-3 px-2 py-0.5 rounded bg-amber-500/80 text-slate-950 font-mono text-[9px] font-bold uppercase">📷 Foto</span>
+            </div>`;
+        }
 
         card.innerHTML = `
           ${thumbHtml}
@@ -484,7 +532,7 @@
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
                 <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-amber-300 font-mono text-[10px] uppercase">${item.categoria}</span>
-                ${item.destacado ? '<span class="text-amber-400 text-xs">⭐ Destacado</span>' : ''}
+                ${item.destacado ? '<span class="text-amber-400 text-xs font-bold">⭐ Destacado</span>' : ''}
               </div>
               <h4 class="font-serif text-base font-bold text-white mb-2 line-clamp-1 group-hover:text-amber-300 transition-colors">${item.titulo}</h4>
               <p class="text-xs text-slate-300 line-clamp-2 leading-relaxed text-shadow-faro">${item.descripcion || 'Registro oficial de la Comunidad Faro de Luz.'}</p>
@@ -506,9 +554,11 @@
             : 'px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 font-mono text-[10px] uppercase';
 
           if (item.tipo === 'video') {
-            let embedUrl = item.url;
-            if (embedUrl.includes('watch?v=')) embedUrl = embedUrl.replace('watch?v=', 'embed/');
-            lightboxContent.innerHTML = `<iframe src="${embedUrl}?autoplay=1" class="w-full h-[50vh] sm:h-[60vh] border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            if (item.url.includes('youtube.com/embed/')) {
+              lightboxContent.innerHTML = `<iframe src="${item.url}?autoplay=1" class="w-full h-[50vh] sm:h-[60vh] border-0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+              lightboxContent.innerHTML = `<video src="${item.url}" controls autoplay class="max-h-[65vh] w-full object-contain rounded-xl"></video>`;
+            }
           } else {
             lightboxContent.innerHTML = `<img src="${item.url}" alt="${item.titulo}" class="max-h-[65vh] w-auto object-contain rounded-xl p-2" onerror="this.src='https://farodeluz.dpdns.org/og-faro.jpg'">`;
           }
