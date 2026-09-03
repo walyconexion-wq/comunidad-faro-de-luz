@@ -1,0 +1,13 @@
+{
+  "name": "comunidad-faro-de-luz",
+  "version": "1.0.0",
+  "description": "Portal Institucional Comunidad Faro de Luz",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.112.4",
+    "@travisvn/edge-tts": "^1.0.2"
+  }
+}
