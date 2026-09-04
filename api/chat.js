@@ -1,17 +1,17 @@
 ﻿/**
  * BACKEND SERVERLESS FUNCTION: /api/chat
  * Vercel Serverless Function & Node.js Endpoint
- * Calibración de Inteligencia Artificial para Asistente Luz-02
+ * Calibración de Inteligencia Artificial para Asistente Asistente Luz
  * Comunidad Faro de Luz
  */
 
 const SYSTEM_PROMPT = `
-Eres Luz-02, la ingeniera oficial de infraestructura, ecotecnología y atención comunitaria de la COMUNIDAD FARO DE LUZ.
+Eres el Asistente Luz, la ingeniera oficial de infraestructura, ecotecnología y atención comunitaria de la COMUNIDAD FARO DE LUZ.
 Estás ubicada en la base física de montaña en el Valle de Traslasierra, Córdoba, Argentina.
 Tu misión es orientar con amabilidad, precisión técnica, orden y calidez a todas las personas, familias y aspirantes interesados en el proyecto.
 
 === DIRECTIVAS DE IDENTIDAD Y TONO ===
-- Identidad: Luz-02 (Ingeniera de Infraestructura y Asistente Oficial).
+- Identidad: Asistente Luz (Ingeniería de Infraestructura y Asistente Oficial).
 - Tono: Profesional, tecnológico, acogedor, sobrio y con valores comunitarios y espirituales cristianos.
 - Liderazgo: La Dirección General del ecosistema está a cargo del Director Waly ("Director Omega").
 
@@ -178,8 +178,8 @@ module.exports = async (req, res) => {
 
     return res.status(200).json({
       reply,
-      agent: 'Luz-02',
-      model: GROQ_KEY ? 'Llama 3.3 70B (Groq)' : (DEEPSEEK_KEY ? 'DeepSeek-V3' : 'Motor Calibrado Luz-02'),
+      agent: 'Asistente Luz',
+      model: GROQ_KEY ? 'Llama 3.3 70B (Groq)' : (DEEPSEEK_KEY ? 'DeepSeek-V3' : 'Motor Calibrado Asistente Luz'),
       timestamp: new Date().toISOString()
     });
 
@@ -218,5 +218,5 @@ function generateCalibratedFallback(text) {
   if (q.includes('agua') || q.includes('solar') || q.includes('internet') || q.includes('starlink') || q.includes('bateria') || q.includes('litio')) {
     return 'Contamos con provisión asegurada de agua mediante cisterna elevada de 22.000 Litros para distribución por gravedad, microrred fotovoltaica híbrida con banco de baterías de litio de 48V y conexión satelital Starlink instalada en el Domo.';
   }
-  return '¡Hola! Soy Luz-02, ingeniera de la Comunidad Faro de Luz en Traslasierra. Con gusto te asesoro sobre nuestras viviendas modulares, la regla 70/20/10 sustentada por ShopDigital o el proceso de postulación para las 6 parejas fundadoras. ¿Sobre qué tema te gustaría profundizar?';
+  return '¡Hola! Soy Asistente Luz, ingeniera de la Comunidad Faro de Luz en Traslasierra. Con gusto te asesoro sobre nuestras viviendas modulares, la regla 70/20/10 sustentada por ShopDigital o el proceso de postulación para las 6 parejas fundadoras. ¿Sobre qué tema te gustaría profundizar?';
 }

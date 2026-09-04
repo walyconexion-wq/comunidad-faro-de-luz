@@ -88,19 +88,15 @@
         </div>
       </a>
 
-      <div class="hidden lg:flex items-center gap-5 text-xs font-medium text-slate-300">
-        <a href="#mision-vision" class="hover:text-amber-300 transition-colors">Visión & Misión</a>
-        <a href="#ecosistema" class="hover:text-cyan-300 transition-colors">Ecosistema</a>
-        <a href="#ecotecnologia" class="hover:text-amber-300 transition-colors">Ecotecnología</a>
-        <a href="#gobernanza" class="hover:text-amber-300 transition-colors">Organigrama</a>
-        <a href="#regla-tiempo" class="hover:text-amber-300 transition-colors">Regla 70/20/10</a>
-        <a href="#ubicacion" class="hover:text-amber-300 transition-colors">Ubicación</a>
-        <a href="#galeria" class="hover:text-amber-300 transition-colors">Galería</a>
-        <a href="#tablero-maestro" class="hover:text-cyan-300 transition-colors flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-          Tablero de Búnkeres
-        </a>
-        <a href="#formacion" class="hover:text-amber-300 transition-colors">Centro de Formación</a>
+      <div class="hidden lg:flex items-center gap-2.5 xl:gap-4 text-xs font-medium text-slate-300" id="navbar-links">
+        <a href="#mision-vision" class="nav-link hover:text-amber-300">Visión & Misión</a>
+        <a href="#ecosistema" class="nav-link hover:text-cyan-300">Ecosistema</a>
+        <a href="#ecotecnologia" class="nav-link hover:text-amber-300">Ecotecnología</a>
+        <a href="#gobernanza" class="nav-link hover:text-amber-300">Organigrama</a>
+        <a href="#regla-tiempo" class="nav-link hover:text-amber-300">Regla 70/20/10</a>
+        <a href="#ubicacion" class="nav-link hover:text-amber-300">Ubicación</a>
+        <a href="#galeria" class="nav-link hover:text-amber-300">Galería</a>
+        <a href="#formacion" class="nav-link hover:text-amber-300">Formación</a>
       </div>
 
       <div class="flex items-center gap-2.5">
@@ -726,119 +722,6 @@
         </div>
       </div>
 
-      <!-- ESCENA 5: TABLERO MAESTRO DE BÚNKERES (480vh - 620vh) -->
-      <section id="tablero-maestro" class="min-h-[160vh] flex flex-col items-center justify-center px-4 py-16">
-        <div class="max-w-6xl w-full glass-card-faro border-cyan-500/35 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl shadow-black/90">
-          
-          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
-            <div>
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono uppercase tracking-widest mb-2">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                Centro de Comando & Agentes
-              </div>
-              <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
-                Tablero Maestro de Búnkeres
-              </h2>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs">
-                ● Telemetría: ONLINE
-              </span>
-              <span class="px-3 py-1.5 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs">
-                Backend: Supabase Active
-              </span>
-            </div>
-          </div>
-
-          <!-- GRID DE LOS 5 BÚNKERES OPERATIVOS -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            
-            <!-- Búnker 1: Automatización & Agente -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-cyan-500/25 hover:bg-black/35 hover:border-cyan-400/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-2xl">🤖</span>
-                  <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-200 text-[10px] font-mono uppercase">Agente Activo</span>
-                </div>
-                <h4 class="font-bold text-white text-base mb-1">Búnker 1: Automatización & Chat</h4>
-                <p class="text-xs text-slate-400 mb-4">Respuestas automáticas a aspirantes, triage con IA de mensajes y derivación a coordinadores.</p>
-              </div>
-              <div class="p-3 rounded-xl bg-slate-900/80 border border-white/5 font-mono text-[11px] text-cyan-300 flex items-center justify-between">
-                <span>Mensajes atendidos hoy:</span>
-                <strong class="text-white">18</strong>
-              </div>
-            </div>
-
-            <!-- Búnker 2: Ecotecnología & Telemetría -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-amber-500/25 hover:bg-black/35 hover:border-amber-400/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-2xl">🔋</span>
-                  <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-200 text-[10px] font-mono uppercase">Telemetría IoT</span>
-                </div>
-                <h4 class="font-bold text-white text-base mb-1">Búnker 2: Ecotecnología</h4>
-                <p class="text-xs text-slate-400 mb-4">Monitoreo de microrred fotovoltaica, banco de litio, cisterna en torre y Starlink.</p>
-              </div>
-              <div class="grid grid-cols-2 gap-2 font-mono text-[10px]">
-                <div class="p-2 rounded-lg bg-slate-900 text-amber-200">Litio: <strong>94%</strong></div>
-                <div class="p-2 rounded-lg bg-slate-900 text-amber-200">Agua: <strong>88%</strong></div>
-              </div>
-            </div>
-
-            <!-- Búnker 3: Finanzas & Fideicomiso -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-emerald-500/25 hover:bg-black/35 hover:border-emerald-400/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-2xl">📊</span>
-                  <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-200 text-[10px] font-mono uppercase">Fideicomiso</span>
-                </div>
-                <h4 class="font-bold text-white text-base mb-1">Búnker 3: Contabilidad</h4>
-                <p class="text-xs text-slate-400 mb-4">Administración del fondo común provisto por ShopDigital y pagos de la hectárea.</p>
-              </div>
-              <div class="p-3 rounded-xl bg-slate-900/80 border border-white/5 font-mono text-[11px] text-emerald-300 flex items-center justify-between">
-                <span>Estado fondo común:</span>
-                <strong class="text-white">SUPERÁVIT</strong>
-              </div>
-            </div>
-
-            <!-- Búnker 4: Difusión & Convocatoria -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-purple-500/25 hover:bg-black/35 hover:border-purple-400/50 transition-all group flex flex-col justify-between">
-              <div>
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-2xl">📢</span>
-                  <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-200 text-[10px] font-mono uppercase">Convocatoria</span>
-                </div>
-                <h4 class="font-bold text-white text-base mb-1">Búnker 4: Marketing & Talento</h4>
-                <p class="text-xs text-slate-400 mb-4">Control de postulantes recibidos, perfiles técnicos y selección de las 6 parejas fundadoras.</p>
-              </div>
-              <div class="p-3 rounded-xl bg-slate-900/80 border border-white/5 font-mono text-[11px] text-purple-300 flex items-center justify-between">
-                <span>Postulaciones activas:</span>
-                <strong class="text-white">12 perfiles</strong>
-              </div>
-            </div>
-
-            <!-- Búnker 5: SecOps & Roles -->
-            <div class="p-5 sm:p-6 rounded-2xl bg-black/25 border border-red-500/25 hover:bg-black/35 hover:border-red-400/50 transition-all group flex flex-col justify-between md:col-span-2">
-              <div>
-                <div class="flex items-center justify-between mb-4">
-                  <span class="text-2xl">🛡️</span>
-                  <span class="px-2 py-0.5 rounded bg-red-500/20 text-red-200 text-[10px] font-mono uppercase">SecOps & Credenciales</span>
-                </div>
-                <h4 class="font-bold text-white text-base mb-1">Búnker 5: Seguridad & Control de Accesos</h4>
-                <p class="text-xs text-slate-400 mb-4">Gestión segura de credenciales Supabase / Vercel / GitHub y llaves criptográficas de los fundadores.</p>
-              </div>
-              <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
-                <span class="text-emerald-400">✓ RLS Active</span>
-                <span class="text-emerald-400">✓ DNS DonWeb Verified</span>
-                <span class="text-emerald-400">✓ GitHub CI/CD Connected</span>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       <!-- ESCENA: EMBUDO DE SUSCRIPCIÓN, CONTACTO Y COMUNIDAD (#comunidad) -->
       <section id="formacion" class="min-h-[160vh] flex flex-col items-center justify-center px-4 py-20">
         <div id="postulacion" class="max-w-5xl w-full glass-card-faro border-amber-500/35 rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl shadow-black/80 space-y-8">
@@ -1047,14 +930,14 @@
       <div class="bg-gradient-to-r from-[#0F172A] to-[#1E1B18] p-4 border-b border-white/10 flex items-center justify-between">
         <div class="flex items-center gap-3">
           <div class="relative">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-serif font-bold text-sm shadow-md shadow-amber-500/20">
-              L-02
+            <div class="w-10 h-10 rounded-2xl overflow-hidden border border-amber-400/50 shadow-md shadow-amber-500/20 flex items-center justify-center bg-black/60 p-1.5">
+              <img src="/favicon-faro.svg" alt="Faro de Luz" class="w-full h-full object-contain">
             </div>
             <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0B101A] animate-pulse"></span>
           </div>
           <div>
             <div class="flex items-center gap-2">
-              <h4 class="font-serif text-sm font-bold text-white">Asistente Luz-02</h4>
+              <h4 class="font-serif text-sm font-bold text-white">Asistente Luz</h4>
               <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[9px]">EN LÍNEA</span>
             </div>
             <p class="text-[10px] text-slate-400">Ingeniería & Atención a la Comunidad</p>
@@ -1073,14 +956,14 @@
       <!-- CUERPO DE MENSAJES -->
       <div id="luz-chat-body" class="p-4 overflow-y-auto max-h-[340px] space-y-3 text-xs leading-relaxed">
         <div class="flex gap-2.5 items-start">
-          <div class="w-6 h-6 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
-            L
+          <div class="w-7 h-7 rounded-lg overflow-hidden border border-amber-500/40 p-1 bg-black/50 shadow-sm flex items-center justify-center shrink-0 mt-0.5">
+            <img src="/favicon-faro.svg" alt="Faro de Luz" class="w-full h-full object-contain">
           </div>
           <div class="space-y-1.5 max-w-[85%]">
             <div class="p-3 rounded-2xl rounded-tl-sm bg-white/5 border border-white/5 text-slate-200">
-              ¡Hola! Soy <strong>Luz-02</strong>, la ingeniera asistente de la Comunidad Faro de Luz. ¿En qué puedo orientarte hoy?
+              ¡Hola! Soy <strong>Asistente Luz</strong>, la ingeniera asistente de la Comunidad Faro de Luz. ¿En qué puedo orientarte hoy?
             </div>
-            <button class="btn-play-voice text-[10px] font-mono px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/20 flex items-center gap-1.5 transition-all shadow-sm" onclick="const a = new Audio('/api/tts?voice=es-AR-ElenaNeural&text=' + encodeURIComponent('Hola, soy Luz 02, la ingeniera asistente de la Comunidad Faro de Luz. En que puedo orientarte hoy?')); this.innerHTML='<span class=\'animate-pulse text-amber-300\'>⚡ Reproduciendo voz...</span>'; a.onended=()=>this.innerHTML='<span>🔊</span><span>Escuchar saludo</span>'; a.play();">
+            <button class="btn-play-voice text-[10px] font-mono px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/20 flex items-center gap-1.5 transition-all shadow-sm" onclick="const a = new Audio('/api/tts?voice=es-AR-ElenaNeural&text=' + encodeURIComponent('Hola, soy el Asistente Luz, la ingeniera asistente de la Comunidad Faro de Luz. En que puedo orientarte hoy?')); this.innerHTML='<span class=\'animate-pulse text-amber-300\'>⚡ Reproduciendo voz...</span>'; a.onended=()=>this.innerHTML='<span>🔊</span><span>Escuchar saludo</span>'; a.play();">
               <span>🔊</span>
               <span>Escuchar saludo</span>
             </button>
@@ -1115,7 +998,7 @@
 
       <!-- INPUT Y ENVIAR -->
       <form id="luz-chat-form" class="p-3 bg-[#080C14] border-t border-white/10 flex items-center gap-2">
-        <input type="text" id="luz-chat-input" placeholder="Escribí tu consulta a Luz-02..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-amber-400 transition-all">
+        <input type="text" id="luz-chat-input" placeholder="Escribí tu consulta a Asistente Luz..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/10 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-amber-400 transition-all">
         <button type="submit" class="w-9 h-9 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 flex items-center justify-center shadow-md shadow-amber-500/20 transition-all transform hover:scale-105 active:scale-95 shrink-0">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
         </button>
@@ -1126,13 +1009,13 @@
     <!-- BOTÓN DISPARADOR FLOTANTE -->
     <button id="btn-toggle-luz-chat" class="group flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#0F172A] to-[#1E1B18] hover:from-[#1E293B] hover:to-[#2A241F] border border-amber-500/40 shadow-2xl shadow-black/80 transition-all transform hover:scale-105 active:scale-95">
       <div class="relative">
-        <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-serif font-bold text-xs shadow-md shadow-amber-500/20">
-          L-02
+        <div class="w-9 h-9 rounded-xl overflow-hidden border border-amber-400/50 shadow-md shadow-amber-500/20 flex items-center justify-center bg-black/60 p-1">
+          <img src="/favicon-faro.svg" alt="Faro de Luz" class="w-full h-full object-contain">
         </div>
         <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
       </div>
       <div class="text-left hidden sm:block">
-        <div class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors">Asistente Luz-02</div>
+        <div class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors">Asistente Luz</div>
         <div class="text-[10px] text-slate-400">Atención a la Comunidad</div>
       </div>
     </button>
