@@ -1,4 +1,4 @@
-﻿const https = require('https');
+const https = require('https');
 
 // ENDPOINT SERVERLESS DE VOZ HUMANA ARGENTINA (ULTRA-RÁPIDO Y RESILIENTE)
 module.exports = async (req, res) => {
@@ -36,7 +36,7 @@ module.exports = async (req, res) => {
   // Limpiar texto para síntesis óptima
   const cleanText = text
     .replace(/[\u{1F600}-\u{1F64F}|\u{1F300}-\u{1F5FF}|\u{1F680}-\u{1F6FF}|\u{1F1E0}-\u{1F1FF}|\u{2600}-\u{26FF}|\u{2700}-\u{27BF}]/gu, '')
-    .replace(/[*_#`~]/g, '')
+    .replace(/[*_#`~<>\[\]]/g, '')
     .substring(0, 300)
     .trim();
 
@@ -53,7 +53,6 @@ module.exports = async (req, res) => {
   };
 
   try {
-    // Si la frase es corta o estándar, generar audio inmediato
     const audioBuffer = await fetchGoogleTTS(cleanText);
 
     if (typeof res.setHeader === 'function') {
