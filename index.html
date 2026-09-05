@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -56,7 +59,7 @@
       }
     }
   </script>
-  <script src="/soundFX.js" defer></script>
+  <script src="/soundFX.js?v=3.2" defer></script>
 </head>
 <body class="bg-[#070A0F] text-slate-100 font-sans selection:bg-amber-500/30 selection:text-amber-200 overflow-x-hidden">
 
@@ -963,10 +966,7 @@
             <div class="p-3 rounded-2xl rounded-tl-sm bg-white/5 border border-white/5 text-slate-200">
               ¡Hola! Soy <strong>Asistente Luz</strong>, la ingeniera asistente de la Comunidad Faro de Luz. ¿En qué puedo orientarte hoy?
             </div>
-            <button class="btn-play-voice text-[10px] font-mono px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/20 flex items-center gap-1.5 transition-all shadow-sm" onclick="const a = new Audio('/api/tts?voice=es-AR-ElenaNeural&text=' + encodeURIComponent('Hola, soy el Asistente Luz, la ingeniera asistente de la Comunidad Faro de Luz. En que puedo orientarte hoy?')); this.innerHTML='<span class=\'animate-pulse text-amber-300\'>⚡ Reproduciendo voz...</span>'; a.onended=()=>this.innerHTML='<span>🔊</span><span>Escuchar saludo</span>'; a.play();">
-              <span>🔊</span>
-              <span>Escuchar saludo</span>
-            </button>
+            
           </div>
         </div>
 
@@ -999,6 +999,6 @@
   </div>
 
   <!-- SCRIPT DE SCROLLYTELLING Y CONTROL -->
-  <script src="src/scrollytelling.js"></script>
+  <script src="src/scrollytelling.js?v=3.2"></script>
 </body>
 </html>
