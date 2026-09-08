@@ -76,39 +76,42 @@
   </div>
 
   <!-- NAVBAR FLOTANTE -->
-  <header class="fixed top-4 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-6xl">
-    <nav class="backdrop-blur-xl bg-[#0B0F17]/75 border border-white/10 rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-2xl shadow-black/60">
-      <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-full overflow-hidden border border-amber-400/40 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform flex items-center justify-center bg-black/50">
+  <header class="fixed top-2.5 sm:top-3 left-1/2 -translate-x-1/2 z-40 w-[96%] max-w-6xl">
+    <nav class="backdrop-blur-xl bg-[#0B0F17]/85 border border-white/10 rounded-xl sm:rounded-2xl px-3 sm:px-4 py-1.5 sm:py-2 flex items-center justify-between shadow-2xl shadow-black/60">
+      <a href="#hero" class="flex items-center gap-2.5 group select-none cursor-pointer flex-shrink-0">
+        <div class="w-8 h-8 rounded-full overflow-hidden border border-amber-400/40 shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform flex items-center justify-center bg-black/50">
           <img src="/favicon-faro.svg" alt="Faro de Luz" class="w-full h-full object-cover">
         </div>
         <div>
-          <span class="font-serif text-sm tracking-wider font-bold text-white block">FARO DE LUZ</span>
-          <span id="header-live-clock" class="text-[10px] text-amber-300 tracking-wider block font-mono flex items-center gap-1">
+          <span class="font-serif text-xs sm:text-sm tracking-wider font-bold text-white block leading-tight">FARO DE LUZ</span>
+          <span id="header-live-clock" class="hidden md:flex text-[9px] text-amber-300 tracking-wider font-mono items-center gap-1 leading-tight">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
             <span id="clock-display">--/--/---- --:--:--</span>
           </span>
         </div>
       </a>
 
-      <div class="hidden lg:flex items-center gap-2.5 xl:gap-4 text-xs font-medium text-slate-300" id="navbar-links">
-        <a href="#mision-vision" class="nav-link hover:text-amber-300">Visión & Misión</a>
-        <a href="#ecosistema" class="nav-link hover:text-cyan-300">Ecosistema</a>
-        <a href="#ecotecnologia" class="nav-link hover:text-amber-300">Ecotecnología</a>
-        <a href="#gobernanza" class="nav-link hover:text-amber-300">Organigrama</a>
-        <a href="#regla-tiempo" class="nav-link hover:text-amber-300">Regla 70/20/10</a>
-        <a href="#ubicacion" class="nav-link hover:text-amber-300">Ubicación</a>
-        <a href="#galeria" class="nav-link hover:text-amber-300">Galería</a>
-        <a href="#formacion" class="nav-link hover:text-amber-300">Formación</a>
+      <div class="hidden lg:flex items-center gap-2 xl:gap-3 text-[11px] font-medium text-slate-300 whitespace-nowrap flex-nowrap" id="navbar-links">
+        <a href="#mision-vision" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Visión & Misión</a>
+        <a href="#ecosistema" class="nav-link hover:text-cyan-300 whitespace-nowrap py-1">Ecosistema</a>
+        <a href="#ecotecnologia" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Ecotecnología</a>
+        <a href="#gobernanza" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Organigrama</a>
+        <a href="#regla-tiempo" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Regla 70/20/10</a>
+        <a href="#ubicacion" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Ubicación</a>
+        <a href="#galeria" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Galería</a>
+        <a href="#formacion" class="nav-link hover:text-amber-300 whitespace-nowrap py-1">Formación</a>
       </div>
 
-      <div class="flex items-center gap-2.5">
-        <a href="bunker.html" class="px-3.5 py-2 text-xs font-mono font-semibold rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 shadow-md transition-all flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-          ⚡ Búnker Live
+      <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+        <a href="bunker.html" class="px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-mono font-semibold rounded-lg sm:rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/20 shadow-md transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+          <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span class="hidden sm:inline">⚡ Búnker Live</span>
+          <span class="sm:hidden">⚡ Búnker</span>
         </a>
-        <a href="#postulacion" class="px-4 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-md shadow-amber-500/20 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
-          Sumarme / Contacto
+        <a href="#postulacion" class="px-2 sm:px-3.5 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold rounded-lg sm:rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 shadow-md shadow-amber-500/20 transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap transform hover:scale-[1.02] active:scale-[0.98]">
+          <span class="hidden sm:inline">Sumarme / Contacto</span>
+          <span class="sm:hidden">Sumarme</span>
+          <span>✨</span>
         </a>
       </div>
     </nav>
@@ -129,28 +132,131 @@
     <div class="relative z-10 -mt-[100vh]">
 
       <!-- ESCENA 1: HERO (0vh - 120vh) -->
-      <section id="hero" class="min-h-[120vh] flex flex-col items-center justify-center px-4 text-center">
-        <div class="max-w-4xl glass-card-faro rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl transition-all duration-500 transform hover:border-amber-500/30">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-widest uppercase mb-6">
-            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+      <section id="hero" class="min-h-screen flex flex-col items-center justify-center px-3 sm:px-4 pt-24 sm:pt-20 pb-6 text-center relative">
+        <div class="max-w-4xl w-full glass-card-faro rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7 shadow-2xl transition-all duration-500 transform hover:border-amber-500/30 backdrop-blur-md">
+          
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[10px] sm:text-xs font-mono tracking-widest uppercase mb-2.5 sm:mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
             Base Comunitaria · Valle de Traslasierra, Córdoba
           </div>
-          <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white uppercase drop-shadow-xl mb-6">
-            Comunidad<br><span class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">Faro de Luz</span>
+
+          <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white uppercase drop-shadow-xl mb-1.5 sm:mb-2 leading-tight">
+            Comunidad <span class="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-100 bg-clip-text text-transparent">Faro de Luz</span>
           </h1>
-          <p class="text-base sm:text-xl text-slate-200 font-light max-w-2xl mx-auto leading-relaxed drop-shadow">
+
+          <p class="text-xs sm:text-sm md:text-base text-slate-200 font-light max-w-xl mx-auto leading-snug drop-shadow mb-2.5 sm:mb-3">
             "2027 — Unión de fe, ecotecnología y comunidad en el corazón de Traslasierra."
           </p>
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-xs font-medium text-slate-300">
-            <span class="px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur">🏔️ 1 Hectárea con Agua</span>
-            <span class="px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur">👥 6 Parejas Fundadoras</span>
-            <span class="px-3.5 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur">💻 100% Sustento ShopDigital</span>
+
+          <div class="flex flex-wrap items-center justify-center gap-2 text-[10px] sm:text-xs font-medium text-slate-300 mb-3 sm:mb-3.5">
+            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 backdrop-blur shadow-sm">🏔️ 1 Hectárea con Agua</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 backdrop-blur shadow-sm">👥 6 Parejas Fundadoras</span>
+            <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 backdrop-blur shadow-sm">💻 100% Sustento ShopDigital</span>
           </div>
+
+          <!-- SUBMENÚ INTERACTIVO: BOTONERA DE COMUNIDAD (3D TÁCTIL) -->
+          <div class="pt-2.5 sm:pt-3 border-t border-white/10">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-amber-300 mb-2 sm:mb-2.5 flex items-center justify-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              Estructura Comunitaria & Convivencia
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 max-w-4xl mx-auto text-left">
+              
+              <!-- 1. Visión & Misión -->
+              <a href="#mision-vision" role="button" title="Visión y Misión Comunidad" class="group/btn relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-amber-900/80 via-amber-950/90 to-slate-950/95 hover:from-amber-800/90 hover:to-amber-950 border border-amber-400/50 hover:border-amber-300 shadow-[0_4px_0_#b45309,0_8px_18px_rgba(245,158,11,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] active:translate-y-1 active:shadow-[0_0_0_#b45309,0_2px_8px_rgba(245,158,11,0.25)] transition-all duration-150 flex flex-col justify-between cursor-pointer select-none">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-8 h-8 rounded-xl bg-amber-500/25 border border-amber-400/40 flex items-center justify-center text-lg shadow-sm group-hover/btn:scale-110 transition-transform">
+                    🧭
+                  </div>
+                  <span class="text-[9px] font-mono font-bold text-amber-200 bg-amber-500/30 border border-amber-400/50 px-1.5 py-0.5 rounded-md shadow-sm">2027</span>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-[13px] font-bold text-white group-hover/btn:text-amber-200 transition-colors flex items-center justify-between">
+                    <span>Propósito</span>
+                    <span class="w-4 h-4 rounded-full bg-amber-500/30 border border-amber-400/40 text-[9px] flex items-center justify-center text-amber-200 group-hover/btn:bg-amber-500 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all">→</span>
+                  </div>
+                  <div class="text-[10px] text-amber-200/70 group-hover/btn:text-amber-100 leading-tight truncate mt-0.5 font-sans">Visión & Misión</div>
+                </div>
+              </a>
+
+              <!-- 2. Ecotecnología -->
+              <a href="#ecotecnologia" role="button" title="Ecotecnología Solar y de Montaña" class="group/btn relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-cyan-900/80 via-cyan-950/90 to-slate-950/95 hover:from-cyan-800/90 hover:to-cyan-950 border border-cyan-400/50 hover:border-cyan-300 shadow-[0_4px_0_#0e7490,0_8px_18px_rgba(6,182,212,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] active:translate-y-1 active:shadow-[0_0_0_#0e7490,0_2px_8px_rgba(6,182,212,0.25)] transition-all duration-150 flex flex-col justify-between cursor-pointer select-none">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-8 h-8 rounded-xl bg-cyan-500/25 border border-cyan-400/40 flex items-center justify-center text-lg shadow-sm group-hover/btn:scale-110 transition-transform">
+                    ⚡
+                  </div>
+                  <span class="text-[9px] font-mono font-bold text-cyan-200 bg-cyan-500/30 border border-cyan-400/50 px-1.5 py-0.5 rounded-md shadow-sm">18.4kW</span>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-[13px] font-bold text-white group-hover/btn:text-cyan-200 transition-colors flex items-center justify-between">
+                    <span>Ecotec</span>
+                    <span class="w-4 h-4 rounded-full bg-cyan-500/30 border border-cyan-400/40 text-[9px] flex items-center justify-center text-cyan-200 group-hover/btn:bg-cyan-500 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all">→</span>
+                  </div>
+                  <div class="text-[10px] text-cyan-200/70 group-hover/btn:text-cyan-100 leading-tight truncate mt-0.5 font-sans">Solar & Litio</div>
+                </div>
+              </a>
+
+              <!-- 3. Organigrama & Familias -->
+              <a href="#gobernanza" role="button" title="Organigrama y Gobernanza Co-Housing" class="group/btn relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-amber-900/80 via-amber-950/90 to-slate-950/95 hover:from-amber-800/90 hover:to-amber-950 border border-amber-400/50 hover:border-amber-300 shadow-[0_4px_0_#b45309,0_8px_18px_rgba(245,158,11,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] active:translate-y-1 active:shadow-[0_0_0_#b45309,0_2px_8px_rgba(245,158,11,0.25)] transition-all duration-150 flex flex-col justify-between cursor-pointer select-none">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-8 h-8 rounded-xl bg-amber-500/25 border border-amber-400/40 flex items-center justify-center text-lg shadow-sm group-hover/btn:scale-110 transition-transform">
+                    👥
+                  </div>
+                  <span class="text-[9px] font-mono font-bold text-amber-200 bg-amber-500/30 border border-amber-400/50 px-1.5 py-0.5 rounded-md shadow-sm">6 PAREJAS</span>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-[13px] font-bold text-white group-hover/btn:text-amber-200 transition-colors flex items-center justify-between">
+                    <span>Comunidad</span>
+                    <span class="w-4 h-4 rounded-full bg-amber-500/30 border border-amber-400/40 text-[9px] flex items-center justify-center text-amber-200 group-hover/btn:bg-amber-500 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all">→</span>
+                  </div>
+                  <div class="text-[10px] text-amber-200/70 group-hover/btn:text-amber-100 leading-tight truncate mt-0.5 font-sans">Co-Housing</div>
+                </div>
+              </a>
+
+              <!-- 4. Ubicación -->
+              <a href="#ubicacion" role="button" title="Ubicación Satelital y Coordenadas" class="group/btn relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-teal-900/80 via-teal-950/90 to-slate-950/95 hover:from-teal-800/90 hover:to-teal-950 border border-teal-400/50 hover:border-teal-300 shadow-[0_4px_0_#0f766e,0_8px_18px_rgba(20,184,166,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] active:translate-y-1 active:shadow-[0_0_0_#0f766e,0_2px_8px_rgba(20,184,166,0.25)] transition-all duration-150 flex flex-col justify-between cursor-pointer select-none">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-8 h-8 rounded-xl bg-teal-500/25 border border-teal-400/40 flex items-center justify-center text-lg shadow-sm group-hover/btn:scale-110 transition-transform">
+                    📍
+                  </div>
+                  <span class="text-[9px] font-mono font-bold text-teal-200 bg-teal-500/30 border border-teal-400/50 px-1.5 py-0.5 rounded-md shadow-sm">GPS</span>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-[13px] font-bold text-white group-hover/btn:text-teal-200 transition-colors flex items-center justify-between">
+                    <span>Ubicación</span>
+                    <span class="w-4 h-4 rounded-full bg-teal-500/30 border border-teal-400/40 text-[9px] flex items-center justify-center text-teal-200 group-hover/btn:bg-teal-500 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all">→</span>
+                  </div>
+                  <div class="text-[10px] text-teal-200/70 group-hover/btn:text-teal-100 leading-tight truncate mt-0.5 font-sans">Panaholma 980m</div>
+                </div>
+              </a>
+
+              <!-- 5. Galería -->
+              <a href="#galeria" role="button" title="Galería de Fotos y Videos" class="group/btn relative p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-amber-900/80 via-amber-950/90 to-slate-950/95 hover:from-amber-800/90 hover:to-amber-950 border border-amber-400/50 hover:border-amber-300 shadow-[0_4px_0_#b45309,0_8px_18px_rgba(245,158,11,0.35),inset_0_1px_1px_rgba(255,255,255,0.4)] active:translate-y-1 active:shadow-[0_0_0_#b45309,0_2px_8px_rgba(245,158,11,0.25)] transition-all duration-150 flex flex-col justify-between cursor-pointer select-none">
+                <div class="flex items-center justify-between mb-2">
+                  <div class="w-8 h-8 rounded-xl bg-amber-500/25 border border-amber-400/40 flex items-center justify-center text-lg shadow-sm group-hover/btn:scale-110 transition-transform">
+                    📸
+                  </div>
+                  <span class="text-[9px] font-mono font-bold text-amber-200 bg-amber-500/30 border border-amber-400/50 px-1.5 py-0.5 rounded-md shadow-sm">HD</span>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-[13px] font-bold text-white group-hover/btn:text-amber-200 transition-colors flex items-center justify-between">
+                    <span>Galería</span>
+                    <span class="w-4 h-4 rounded-full bg-amber-500/30 border border-amber-400/40 text-[9px] flex items-center justify-center text-amber-200 group-hover/btn:bg-amber-500 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all">→</span>
+                  </div>
+                  <div class="text-[10px] text-amber-200/70 group-hover/btn:text-amber-100 leading-tight truncate mt-0.5 font-sans">Fotos & Montaña</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+
         </div>
 
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 animate-bounce pointer-events-none">
-          <span class="text-[11px] font-mono tracking-widest uppercase">Deslizá para explorar la arquitectura</span>
-          <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-400 animate-bounce pointer-events-none">
+          <span class="text-[10px] font-mono tracking-widest uppercase">Deslizá para explorar la arquitectura</span>
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
         </div>
       </section>
 
@@ -285,7 +391,7 @@
                   <div>⚡ Sustento 100% Comunal</div>
                 </div>
               </div>
-              <a href="https://shopdigital.tech/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/30 text-cyan-300 hover:text-slate-950 font-semibold text-xs font-mono text-center transition-all flex items-center justify-center gap-2 shadow-md">
+              <a href="https://shopdigital.tech/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 text-slate-950 font-bold text-xs font-mono text-center transition-all flex items-center justify-center gap-2 shadow-[0_3px_0_#0e7490,0_6px_14px_rgba(6,182,212,0.25)] active:translate-y-0.5 active:shadow-none">
                 <span>Explorar ShopDigital</span>
                 <span>↗</span>
               </a>
@@ -311,7 +417,7 @@
                   <div>🔋 Ecotecnología & Litio</div>
                 </div>
               </div>
-              <a href="#hero" class="w-full py-2.5 px-4 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-semibold text-xs font-mono text-center transition-all flex items-center justify-center gap-2 shadow-md cursor-default">
+              <a href="#hero" class="w-full py-2.5 px-4 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 font-bold text-xs font-mono text-center transition-all flex items-center justify-center gap-2 shadow-[0_3px_0_#d97706,0_6px_14px_rgba(245,158,11,0.25)] cursor-default">
                 <span>Estás Aquí (Base)</span>
                 <span>✓</span>
               </a>
@@ -337,7 +443,7 @@
                   <div>🍲 Comedores y Apoyo Social</div>
                 </div>
               </div>
-              <a href="https://fundacion-valle-de-luz.vercel.app" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl bg-emerald-500/10 hover:bg-emerald-500 border border-emerald-500/30 text-emerald-300 hover:text-slate-950 font-semibold text-xs font-mono text-center transition-all flex items-center justify-center gap-2 shadow-md">
+              <a href="https://fundacion-valle-de-luz.vercel.app" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-slate-950 font-bold text-xs font-mono text-center transition-all flex items-center justify-center gap-2 shadow-[0_3px_0_#047857,0_6px_14px_rgba(16,185,129,0.25)] active:translate-y-0.5 active:shadow-none">
                 <span>Conocer Fundación</span>
                 <span>↗</span>
               </a>
@@ -975,7 +1081,7 @@
               <h4 class="font-serif text-sm font-bold text-white">Asistente Luz</h4>
               <span class="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-[9px]">EN LÍNEA</span>
             </div>
-            <p class="text-[10px] text-slate-400">Ingeniería & Atención a la Comunidad</p>
+            <p class="text-[10px] text-emerald-400 font-mono">Asistencia 24/7 · Comunidad Faro de Luz</p>
           </div>
         </div>
         <div class="flex items-center gap-1.5">
@@ -1014,17 +1120,19 @@
 
     </div>
 
-    <!-- BOTÓN DISPARADOR FLOTANTE -->
-    <button type="button" id="btn-toggle-luz-chat" class="group flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-[#0F172A] to-[#1E1B18] hover:from-[#1E293B] hover:to-[#2A241F] border border-amber-500/40 shadow-2xl shadow-black/80 transition-all transform hover:scale-105 active:scale-95">
+    <!-- BOTÓN DISPARADOR FLOTANTE COMPACTO -->
+    <button type="button" id="btn-toggle-luz-chat" class="group flex items-center gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#0F172A]/90 to-[#1E1B18]/90 hover:from-[#1E293B] hover:to-[#2A241F] border border-amber-500/40 shadow-xl shadow-black/80 backdrop-blur-md transition-all transform hover:scale-105 active:scale-95">
       <div class="relative">
-        <div class="w-9 h-9 rounded-xl overflow-hidden border border-amber-400/50 shadow-md shadow-amber-500/20 flex items-center justify-center bg-black/60 p-1">
+        <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl overflow-hidden border border-amber-400/50 shadow-md shadow-amber-500/20 flex items-center justify-center bg-black/60 p-1">
           <img src="/favicon-faro.svg" alt="Faro de Luz" class="w-full h-full object-contain">
         </div>
-        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
       </div>
       <div class="text-left hidden sm:block">
-        <div class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors">Asistente Luz</div>
-        <div class="text-[10px] text-slate-400">Atención a la Comunidad</div>
+        <div class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors leading-tight">Asistente Luz</div>
+        <div class="text-[9px] text-emerald-400 font-mono leading-tight flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span> Asistencia 24/7
+        </div>
       </div>
     </button>
 
